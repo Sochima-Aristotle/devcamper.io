@@ -1,7 +1,11 @@
+// const BootcampModel = require("../model/BootcampModel");
+const BootCampModel = require("../model/BootcampModel");
+
 // @desc  Get all bootcamps
-// @route  Get  /api/v1/bootcamps
+// @route  Get/api/v1/bootcamps
 // @access     Public
-exports.getBootcamps = (req, res, next) => {
+exports.getBootcamps = async (req, res, next) => {
+  const getBoots = await BootCampModel.find();
   res.status(200).json({
     success: true,
     msg: "make the GET API call to the database",
@@ -19,18 +23,21 @@ exports.getBootcamp = (req, res, next) => {
   });
 };
 
-// @desc  Get all bootcamps
+// @desc  Create all bootcamps
 // @route   Post /api/v1/bootcamps
 // @access     Private
-exports.createBootcamps = (req, res, next) => {
-  res.status(200).json({
+exports.createBootcamps = async (req, res, next) => {
+  const bootcamp = await BootCampModel.create(req.body);
+
+  res.status(201).json({
     success: true,
-    msg: `Create the API to be call in the database ${req.params.id}`
+    msg: "I can get here",
+    data: bootcamp
   });
 };
 
-// @desc  Get all bootcamps
-// @route  Put  /api/v1/bootcamps/:id
+// @desc  Update all bootcamps
+// @route  Put/api/v1/bootcamps/:id
 // @access     Private
 exports.updateBootcamp = (req, res, next) => {
   res.status(200).json({
@@ -39,7 +46,7 @@ exports.updateBootcamp = (req, res, next) => {
   });
 };
 // @desc  Delete all bootcamps
-// @route  Put  /api/v1/bootcamps/:id
+// @route  delete/api/v1/bootcamps/:id
 // @access     Private
 exports.deleteBootcamp = (req, res, next) => {
   res.status(200).json({

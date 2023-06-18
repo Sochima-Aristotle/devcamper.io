@@ -1,0 +1,57 @@
+[
+    {
+        "_id": "u99r4uer=7689",
+        "title": "Frontend Web development",
+        "description": "to learn is to earn, it just a matter of time for it to mature and leave out the L and it becomes Earn",
+        "week": "14",
+        "tuition": "$834",
+        "mimiumskill": "none required",
+        "scholarshipsAvailable": true,
+        "bootcamp": "7y0484-540782468-24342",
+        "user": "8304-2454299u099u9u9488"
+    },
+    {
+        "_id": "u99r4uer=3456",
+        "title": "Backend Web development",
+        "description": "To be proficient you have to keep practing, keep sacrificing, keep the grinding alive...",
+        "week": "15",
+        "tuition": "$854",
+        "mimiumskill": "none required",
+        "scholarshipsAvailable": true,
+        "bootcamp": "7y0484-540782468-24342",
+        "user": "8304-2454299u099u9u9488"
+    },
+    {
+        "_id": "u99r4uer=94453i",
+        "title": "Middlend Web development",
+        "description": "to learn is to earn, it just a matter of time for it to mature and leave out the L and it becomes Earn",
+        "week": "14",
+        "tuition": "$834",
+        "mimiumskill": "none required",
+        "scholarshipsAvailable": true,
+        "bootcamp": "7y0484-540782468-24342",
+        "user": "8304-2454299u099u9u9488"
+    },
+    {
+        "_id": "u99r4uer=4543i",
+        "title": "App Web development",
+        "description": "to learn is to earn, it just a matter of time for it to mature and leave out the L and it becomes Earn",
+        "week": "14",
+        "tuition": "$834",
+        "mimiumskill": "none required",
+        "scholarshipsAvailable": true,
+        "bootcamp": "7y0484-540782468-24342",
+        "user": "8304-2454299u099u9u9488"
+    },
+    {
+        "_id": "u99r4uer=453i",
+        "title": "Loppy development",
+        "description": "to learn is to earn, it just a matter of time for it to mature and leave out the L and it becomes Earn",
+        "week": "14",
+        "tuition": "$834",
+        "mimiumskill": "none required",
+        "scholarshipsAvailable": true,
+        "bootcamp": "7y0484-540782468-24342",
+        "user": "8304-2454299u099u9u9488"
+    }
+]

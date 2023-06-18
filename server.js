@@ -16,6 +16,8 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 const app = express();
 
+// Body perser
+app.use(express.json());
 // middleware;
 // implementing morgan middleware
 if (process.env.NODE_ENV === "development") {
