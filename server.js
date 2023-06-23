@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const colors = require("colors");
+const error = require("./middleware/errorHandle");
 // const middle = require("./middleware/logger");
 const morgan = require("morgan");
 
@@ -27,6 +28,8 @@ if (process.env.NODE_ENV === "development") {
 
 // mount bootcamp routs
 app.use("/api/v1/bootcamp", bootcamp);
+// error middleware
+app.use(error);
 
 const PORT = process.env.PORT || 5000;
 

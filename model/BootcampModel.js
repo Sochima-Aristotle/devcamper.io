@@ -39,14 +39,13 @@ const BootcampShema = new mongoose.Schema({
   location: {
     // Geojson Point
     type: {
-      type: String, // Don't do `{ location: { type: String } }`
-      enum: ["Point"], // 'location.type' must be 'Point'
-      required: true
+      type: String,
+      enum: ["Point"]
+      // required: true
     },
     coordinates: {
-      type: [Number],
-      required: true,
-      index: "2dsphere"
+      type: [Number]
+      //  required: true
     },
     formattAddress: String,
     Street: String,
