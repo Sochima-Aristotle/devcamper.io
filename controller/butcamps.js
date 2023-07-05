@@ -1,4 +1,4 @@
-const BootCampModel = require("../model/BootcampModel");
+const BootcampModel = require("../model/BootcampModel");
 const ErrorResponse = require("../utility/errorResponse");
 const geocoder = require("../utility/geocoder");
 const asyncHandler = require("../middleware/asyncHandler");
@@ -28,7 +28,7 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
   );
 
   // find resources
-  query = BootCampModel.find(JSON.parse(queryStr));
+  query = BootcampModel.find(JSON.parse(queryStr));
 
   // select fields
   if (req.query.select) {

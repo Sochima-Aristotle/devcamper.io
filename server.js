@@ -10,6 +10,7 @@ const connectDB = require("./config/db");
 
 // routes file
 const bootcamp = require("./routes/bootcamp");
+const courses = require("./routes/courses");
 const middle = require("./middleware/logger");
 
 // connect to db
@@ -27,6 +28,7 @@ if (process.env.NODE_ENV === "development") {
 
 // mount bootcamp routs
 app.use("/api/v1/bootcamp", bootcamp);
+app.use("/api/v1/courses", courses);
 // error middleware
 app.use(error);
 

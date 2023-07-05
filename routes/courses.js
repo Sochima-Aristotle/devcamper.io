@@ -8,3 +8,7 @@ const {
   updateCourse,
   deleteCourse
 } = require("../controller/curses");
+
+router.route("/").get(getCourses);
+
+module.exports = router;
