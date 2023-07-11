@@ -10,5 +10,6 @@ const {
 } = require("../controller/curses");
 
 router.route("/").get(getCourses);
+router.route("/:id").get(getCourse); //.post(updateCourse).delete(deleteCourse);
 
 module.exports = router;

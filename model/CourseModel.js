@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const bootcampSchema = require('./BootcampModel');
+
+const BootcampModel = mongoose.model("BootcampModel", bootcampSchema);
 
 const CourseSchema = new mongoose.Schema({
   title: {
