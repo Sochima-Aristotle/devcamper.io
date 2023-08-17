@@ -80,7 +80,7 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
 // @route   Get /api/v1/bootcamps/:id
 // @access     Public
 exports.getBootcamp = asyncHandler(async (req, res, next) => {
-  const getOneBoot = await BootCampModel.findById(req.params.id);
+  const getOneBoot = await BootcampModel.findById(req.params.id);
   res.status(200).json({
     success: true,
     data: getOneBoot
@@ -98,7 +98,7 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 exports.createBootcamps = asyncHandler(async (req, res, next) => {
   console.log(req.body);
 
-  const bootcamp = await BootCampModel.create(req.body);
+  const bootcamp = await BootcampModel.create(req.body);
 
   res.status(201).json({
     success: true,
@@ -111,7 +111,7 @@ exports.createBootcamps = asyncHandler(async (req, res, next) => {
 // @route  Put/api/v1/bootcamps/:id
 // @access     Private
 exports.updateBootcamp = asyncHandler(async (req, res, next) => {
-  const upBoot = await BootCampModel.findByIdAndUpdate(
+  const upBoot = await BootcampModel.findByIdAndUpdate(
     req.params.id,
     req.body,
     {
@@ -133,7 +133,7 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 // @route  delete/api/v1/bootcamps/:id
 // @access     Private
 exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
-  const delBoot = await BootCampModel.findById(req.params.id);
+  const delBoot = await BootcampModel.findById(req.params.id);
   if (!delBoot) {
     return next(
       new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404)
@@ -163,7 +163,7 @@ exports.getBootcampInRadius = asyncHandler(async (req, res, next) => {
 
   const radius = distance / 3963;
 
-  const bootcamps = await BootCampModel.find({
+  const bootcamps = await BootcampModel.find({
     location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
   });
   res.status(200).json({
