@@ -10,6 +10,12 @@ const {
 } = require("../controller/butcamps");
 router.route("/").get(getBootcamps).post(createBootcamps);
 
+// Include other resources
+const CourseRouter = require('./courses')
+
+// Re-router into other resource router 
+router.use('/:bootcampId/courses', CourseRouter)
+
 router.route("/radius/:zipcode/:distance").get(getBootcampInRadius);
 
 router
