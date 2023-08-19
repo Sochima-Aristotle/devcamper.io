@@ -28,6 +28,8 @@ exports.getCourses = asyncHandler(async (req, res, next) => {
   });
 });
 
+
+
 // @desc       Get a single Course
 // @route      POST /api/v1/courses/:id
 // @access     Public
@@ -48,6 +50,7 @@ exports.getCourse = asyncHandler(async (req, res, next) => {
   });
 });
 
+
 // @desc       Add a Course
 // @route      POST /api/v1/bootcamps/:bootcampId/courses
 // @access     Private
@@ -55,7 +58,7 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
 
   req.body.bootcamp = req.params.bootcampId
 
-  const bootcamp = await CourseModel.findById(req.params.bootcampId)
+  const bootcamp = await Bootcamp.findById(req.params.bootcampId)
 
   if (!bootcamp) {
     return next(
@@ -65,9 +68,60 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
   }
 
   const course = await CourseModel.create(req.body)
+  res.status(201).json({
+    success: true,
+    data: course
+  });
+});
+
+
+// @desc       Update a Course
+// @route      PUT /api/v1/courses/:id
+// @access     Private
+exports.updateCourse = asyncHandler(async (req, res, next) => {
+
+  let course = await CourseModel.findById(req.params.id)
+
+  if (!course) {
+    return next(
+      new ErrorResponse(`No course with the id of ${req.params.bootcampId}`),
+      404
+    );
+  }
+
+   course = await CourseModel.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+   })
   res.status(200).json({
     success: true,
     data: course
+  });
+});
+
+
+// @desc       DELETE a Course
+// @route      DELETE /api/v1/courses/:id
+// @access     Private
+exports.deleteCourse = asyncHandler(async (req, res, next) => {
+
+  let course = await CourseModel.findById(req.params.id)
+
+  if (!course) {
+    return next(
+      new ErrorResponse(`No course with the id of ${req.params.bootcampId}`),
+      404
+    );
+  }
+
+  // course =  await CourseModel.findByIdAndDelete(req.params.id, req.body, {
+  //     new: true,
+  //     runValidators: true
+  //    })
+   course.remove()
+  res.status(200).json({
+    success: true,
+    data: {}
   });
 });
 
