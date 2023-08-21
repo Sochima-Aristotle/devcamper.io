@@ -118,7 +118,7 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
   //     new: true,
   //     runValidators: true
   //    })
-   course.remove()
+   course.deleteOne()
   res.status(200).json({
     success: true,
     data: {}
