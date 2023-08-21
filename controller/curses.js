@@ -106,6 +106,7 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
 exports.deleteCourse = asyncHandler(async (req, res, next) => {
 
   let course = await CourseModel.findById(req.params.id)
+c
 
   if (!course) {
     return next(
@@ -114,10 +115,7 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
     );
   }
 
-  // course =  await CourseModel.findByIdAndDelete(req.params.id, req.body, {
-  //     new: true,
-  //     runValidators: true
-  //    })
+ 
    course.deleteOne()
   res.status(200).json({
     success: true,
