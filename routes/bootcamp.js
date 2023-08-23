@@ -10,11 +10,14 @@ const {
   getBootcampInRadius
 } = require("../controller/butcamps");
 
+const Bootcamp = require('../model/BootcampMode')
+const advancedResults = require('../middleware/advancedResults')
+
 // Include other resources
 const CourseRouter = require('./courses')
 
-router.route("/").get(getBootcamps).post(createBootcamps);
-
+router.route("/").get(advancedResults(Bootcamp, 'courses'), getBootcamps).post(createBootcamps);
+ 
 // Re-router into other resource router 
 router.use('/:bootcampId/courses', CourseRouter)
 
