@@ -15,6 +15,7 @@ const connectDB = require("./config/db");
 // routes file
 const bootcamp = require("./routes/bootcamp");
 const courses = require("./routes/courses");
+const auth = require("./routes/auth");
 const middle = require("./middleware/logger");
 
 // connect to db
@@ -23,6 +24,7 @@ const app = express();
 
 // Body perser
 app.use(express.json());
+
 // middleware;
 // implementing morgan middleware
 if (process.env.NODE_ENV === "development") {
@@ -40,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // mount bootcamp routs
 app.use("/api/v1/bootcamp", bootcamp);
 app.use("/api/v1/courses", courses);
+app.use("/api/v1/auth", auth)
 // error middleware
 app.use(error);
 

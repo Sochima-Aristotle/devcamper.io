@@ -10,7 +10,7 @@ const {
   getBootcampInRadius
 } = require("../controller/butcamps");
 
-const Bootcamp = require('../model/BootcampMode')
+const Bootcamp = require("../model/BootcampModel");
 const advancedResults = require('../middleware/advancedResults')
 
 // Include other resources

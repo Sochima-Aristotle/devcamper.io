@@ -1,7 +1,6 @@
+const path = require('path')
 const BootcampModel = require("../model/BootcampModel");
 const ErrorResponse = require("../utility/errorResponse");
-const path = require('path')
-// const file = require('./File')
 const geocoder = require("../utility/geocoder");
 const asyncHandler = require("../middleware/asyncHandler");
 
