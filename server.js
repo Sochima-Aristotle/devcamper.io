@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path")
 const dotenv = require("dotenv");
 const fileupload = require('express-fileupload')
+const cookieParser = require('cookie-parser')
 const colors = require("colors");
 const error = require("./middleware/errorHandle");
 
@@ -24,6 +25,9 @@ const app = express();
 
 // Body perser
 app.use(express.json());
+
+//Cookie parser
+app.use(cookieParser())
 
 // middleware;
 // implementing morgan middleware
