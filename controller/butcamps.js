@@ -33,7 +33,10 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 // @route      Post /api/v1/bootcamps
 // @access     Private
 exports.createBootcamps = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
+  // Add user to req.body
+  req.body.user = req.user.id
+
+  // console.log(req.body);
 
   const bootcamp = await BootcampModel.create(req.body);
 
