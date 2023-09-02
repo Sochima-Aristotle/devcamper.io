@@ -17,6 +17,7 @@ const connectDB = require("./config/db");
 const bootcamp = require("./routes/bootcamp");
 const courses = require("./routes/courses");
 const auth = require("./routes/auth");
+const users = require("./routes/users");
 const middle = require("./middleware/logger");
 
 // connect to db
@@ -47,6 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use("/api/v1/bootcamp", bootcamp);
 app.use("/api/v1/courses", courses);
 app.use("/api/v1/auth", auth)
+app.use("/api/v1/auth", users)
 // error middleware
 app.use(error);
 

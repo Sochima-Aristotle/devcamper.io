@@ -47,16 +47,55 @@ exports.Login = asyncHandler(async (req, res, next) => {
   sendTokenResponse(user, 200, res);
 });
 
+
 // @desc       Get current logged in user
 // @route      POST/api/v1/auth/me
 // @access     Private
 exports.getMe = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id);
+ 
+    const user = await User.findById(req.user.id);
 
   res.status(200).json({
     success: true,
     data: user,
   });
+});
+
+// @desc       Get details
+// @route      PUT/api/v1/auth/updatedetails
+// @access     Private
+exports.updatedatails = asyncHandler(async (req, res, next) => {
+
+    const fieldsToUpdate = {
+        name: req.body.name,
+        email: req.body.email
+    }
+
+  const user = await User.findById(req.user.id, fieldsToUpdate, {
+    new: true,
+    runValidators: true
+  });
+
+  
+    res.status(200).json({
+      success: true,
+      data: user,
+    });
+  });
+
+// @desc       Updata password
+// @route      PUT/api/v1/auth/updatepassword
+// @access     Private
+exports.updatePassword = asyncHandler(async (req, res, next) => {
+ 
+    const user = await User.findById(req.user.id).select('+password');
+    if(!(await user.matchPassword(req.body.currentPassword))){
+        return next(new ErrorResponse('Incorrect Password', 401))
+    }
+ user.password = req.body.newPassword
+ await user.save()
+
+  sendTokenResponse(user, 200, res)
 });
 
 // @desc       Forgot password
@@ -108,7 +147,6 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
   console.log('params:', req.params.resettoken);
   
   const resetPasswordToken = crypto
-
     .createHash("sha256")
     .update(req.params.resettoken)
     .digest("hex");
@@ -118,7 +156,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
   });
-console.log('this user',user);
+console.log('this user', user);
 
   if (!user) {
     return next(
