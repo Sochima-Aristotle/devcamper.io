@@ -8,7 +8,7 @@
         "miniumSkill": "intermidiate",
         "scholarshipsAvailable": false,
         "bootcamp": "6497201151ff6560d4d1e774",
-        "user": "8304-2454299u099u9u9488"
+        "user": "5c8a1d5b0190b214360dc031"
     },
     {
         "_id": "648f1705cc18125953f32b66",
@@ -19,7 +19,7 @@
         "miniumSkill": "intermidiate",
         "scholarshipsAvailable": false,
         "bootcamp": "6497201151ff6560d4d1e774",
-        "user": "8304-2454299u099u9u9488"
+        "user": "5d7a514b5d2c12c7449be046"
     },
     {
         "_id": "648f1705cc18125953f32b50",
@@ -30,7 +30,7 @@
         "miniumSkill": "beginners",
         "scholarshipsAvailable": true,
         "bootcamp": "6497201151ff6560d4d1e774",
-        "user": "8304-2454299u099u9u9488"
+        "user": "5d7a514b5d2c12c7449be045"
     },
     {
         "_id": "648f1705cc18125953f32b60",
@@ -41,7 +41,7 @@
         "miniumSkill": "advanced",
         "scholarshipsAvailable": false,
         "bootcamp": "6497201151ff6560d4d1e774",
-        "user": "8304-2454299u099u9u9488"
+        "user": "5d7a514b5d2c12c7449be044"
     },
     {
         "_id": "648f1705cc18125953f32b22",
@@ -52,7 +52,7 @@
         "miniumSkill": "intermidiate",
         "scholarshipsAvailable": true,
         "bootcamp": "6497201151ff6560d4d1e774",
-        "user": "8304-2454299u099u9u9488"
+        "user": "5d7a514b5d2c12c7449be043"
     }
    
 ]
