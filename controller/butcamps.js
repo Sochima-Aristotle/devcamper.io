@@ -10,6 +10,7 @@ const asyncHandler = require("../middleware/asyncHandler");
 // @access     Public
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
  
+ 
   res.status(200).json(res.advancedResults);
 });
 
@@ -34,7 +35,9 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 // @access     Private
 exports.createBootcamps = asyncHandler(async (req, res, next) => {
   // Add user to req.body
+  console.log(`this is the id`, req.user);
   req.body.user = req.user.id
+  
 
   // check for published bootcamp
   const publishedBootcamp = await BootcampModel.findOne({user: req.user.id})

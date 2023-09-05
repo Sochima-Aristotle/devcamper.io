@@ -22,7 +22,7 @@ router.route("/").get(advancedResults(Bootcamp, 'courses'), getBootcamps).post(p
  
 // Re-router into other resource router 
 router.use('/:bootcampId/courses', CourseRouter)
-router.use('/:bootcampId/review', reviewRouter)
+router.use('/:bootcampId/reviews', reviewRouter)
 
 router.route("/radius/:zipcode/:distance").get(getBootcampInRadius);
 

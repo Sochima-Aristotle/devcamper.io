@@ -14,7 +14,8 @@ const BootcampSchema = new mongoose.Schema(
     slug: String,
     description: {
       type: String,
-      required: [true, "Please add name"]
+      required: [true, "Please add name"],
+      maxlength: [500, 'Description can not be more than 500 characters']
     },
     website: {
       type: String,
@@ -47,15 +48,16 @@ const BootcampSchema = new mongoose.Schema(
         // required: true
       },
       coordinates: {
-        type: [Number]
+        type: [Number],
+        index: '2dsphere'
         //  required: true
       },
       formattAddress: String,
-      Street: String,
-      City: String,
-      State: String,
+      street: String,
+      city: String,
+      state: String,
       zipCode: String,
-      Country: String
+      country: String
     },
     careers: {
       // Arrey of string
