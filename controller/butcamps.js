@@ -54,7 +54,7 @@ if(publishedBootcamp && req.user.role !== 'admin'){
 
   res.status(201).json({
     success: true,
-    msg: "I can get here",
+    
     data: bootcamp
   });
 });
